@@ -2,6 +2,7 @@ import tkinter as tk
 from tkinter import ttk
 import json
 
+#Método encargado de copiar datos de entry envio a entry facturacion
 def copiar():
     entry_nombre_factura.insert(0,entry_nombre.get())
     
@@ -13,6 +14,7 @@ def copiar():
 
     entry_provincia_factura.insert(0,entry_provincia.get())
 
+#Método encargado de lanzar pop up de registro exitoso
 def confirmacion(evento):
     ventana_confirmacion = tk.Toplevel(raiz, padx=60,pady=60)
     ventana_confirmacion.title("Registro OK")
@@ -23,6 +25,7 @@ def confirmacion(evento):
     boton_cerrar = ttk.Button(ventana_confirmacion, text="Cerrar", command=ventana_confirmacion.destroy)
     boton_cerrar.pack(pady=10)
 
+#Método encargado de borrar contenido de los entry
 def borrar():
     entry_nombre.delete(0,tk.END)
     entry_nombre_factura.delete(0,tk.END)
@@ -39,6 +42,7 @@ def borrar():
     entry_provincia.delete(0,tk.END)
     entry_provincia_factura.delete(0,tk.END)
 
+#Método encargado de registrar los datos en un fichero json
 def registrar():
     nombre = entry_nombre.get()
     apellidos = entry_apellidos.get()
@@ -53,6 +57,7 @@ def registrar():
     cp_factura = entry_cp.get()
     provincia_factura = entry_provincia.get()
 
+    #Diccionario tipo json
     datos = {
         'nombre': nombre,
         'apellidos': apellidos,
@@ -68,7 +73,7 @@ def registrar():
     }
     datos_json=json.dumps(datos,indent=2)
 
-    archivo=open("C:\\Users\\fonsi\\Desktop\\ESTUDIO\\IMF 2\\DESARROLLO DE INTERFACES\\Practicas\\Practica7DI\\bbdd.json","w")
+    archivo=open("C:\\Users\\fonsi\\Desktop\\ESTUDIO\\IMF 2\\DESARROLLO DE INTERFACES\\PAhracticas\\Practica7DI\\bbdd.json","w")
     archivo.write(datos_json)
     archivo.close()
     
@@ -78,6 +83,7 @@ raiz.geometry("1000x800")
 
 raiz.configure(background='white')
 
+#Declaración de estilos ttk.style
 estilo=ttk.Style()
 estilo.theme_use('clam')
 estilo.configure('TLabel',foreground='green',font=('Arial',15),background='white')
@@ -147,7 +153,7 @@ boton_mismos_datos=ttk.Button(raiz,text="MISMOS DATOS",command=copiar)
 boton_mismos_datos.grid(row=7,column=2,padx=25,pady=10)
 boton_borrar=ttk.Button(raiz,text="BORRAR",command=borrar).grid(row=12,column=2,padx=25,pady=10)
 boton_registrar=ttk.Button(raiz,text="REGISTRAR",command=registrar)
-boton_registrar.grid(row=12,column=1,padx=25,pady=10)
+.grid(row=12,column=1,padx=25,pady=10)
 boton_registrar.bind("<Button-1>",confirmacion)
 
 raiz.mainloop()

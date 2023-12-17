@@ -1,13 +1,13 @@
 {
-  "nombre": "",
-  "apellidos": "",
-  "direccion": "",
-  "cp": "",
-  "provincia": "",
-  "metodo_envio": "",
-  "nombre_factura": "",
-  "apellidos_factura": "",
-  "direccion_factura": "",
-  "cp_factura": "",
-  "provincia_factura": ""
+  "nombre": "alfonso",
+  "apellidos": "12345678e",
+  "direccion": "calle primera",
+  "cp": "37000",
+  "provincia": "salamanca",
+  "metodo_envio": "MRW",
+  "nombre_factura": "alfonso",
+  "apellidos_factura": "12345678e",
+  "direccion_factura": "calle primera",
+  "cp_factura": "37000",
+  "provincia_factura": "salamanca"
 }
